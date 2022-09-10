@@ -10,6 +10,7 @@ class DatabaseManager {
   _onCreate(Database db, int version) async {
     await db.execute(_categorias);
     await db.execute(_transacoes);
+    await db.execute(_planos);
     await db.insert('categorias', {
       'categoriaDescricao': 'Alimentação',
       'categoriaCor': 'pink',
@@ -64,7 +65,23 @@ class DatabaseManager {
       'categoriaIcone': 'money',
       'categoriaTipoTransacao': 1
     });
+    await db.insert('planos', {
+      'nome': 'Viajar',
+      'valorTotal': 5000,
+      'valorAtual': 1000
+    });
   }
+
+    String get _planos => '''
+    CREATE TABLE IF NOT EXISTS planos (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      nome TEXT,
+      valorTotal REAL,
+      valorAtual REAL,
+      dataInicial INTEGER,
+      dataFinal INTEGER
+    );
+  ''';
 
   String get _categorias => '''
     CREATE TABLE IF NOT EXISTS categorias (

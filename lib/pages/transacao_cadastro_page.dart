@@ -59,6 +59,7 @@ class _TransacaoCadastroPageState extends State<TransacaoCadastroPage> {
   }
 
   final _formKey = GlobalKey<FormState>();
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
