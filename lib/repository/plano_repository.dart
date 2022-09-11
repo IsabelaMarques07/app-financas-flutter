@@ -18,10 +18,23 @@ class PlanoRepository {
               nome: row['nome'],
               valorTotal: row['valorTotal'],
               valorAtual: row['valorAtual'],
-              dataInicial: row['dataInicial'],
-              dataFinal: row['dataFinal']
+              dataInicial: DateTime.fromMillisecondsSinceEpoch(row['dataInicial']),
+              dataFinal: DateTime.fromMillisecondsSinceEpoch(row['dataFinal']),
         )
         )
         .toList();
+  }
+
+    Future<void> cadastrarPlano(Plano plano) async {
+    final db = await DatabaseManager().getDatabase();
+
+    db.insert("planos", {
+      "id": plano.id,
+      "nome": plano.nome,
+      "valorTotal": plano.valorTotal,
+      "valorAtual": plano.valorAtual,
+      "dataInicial": plano.dataInicial.millisecondsSinceEpoch,
+      "dataFinal": plano.dataFinal.millisecondsSinceEpoch,
+    });
   }
 }

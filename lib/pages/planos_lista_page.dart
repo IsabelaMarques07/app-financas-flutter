@@ -47,55 +47,7 @@ class _PlanosListaPageState extends State<PlanosListaPage> {
               itemCount: planos.length,
               itemBuilder: (context, index) {
                 final plano = planos[index];
-                return Slidable(
-                  endActionPane: ActionPane(
-                    motion: const ScrollMotion(),
-                    children: [
-                      SlidableAction(
-                        onPressed: (context) async {
-                          // await _planoRepository
-                          //     .removerLancamento(plano.id!);
-
-                          // ScaffoldMessenger.of(context).showSnackBar(
-                          //     const SnackBar(
-                          //         content:
-                          //             Text('Lançamento removido com sucesso')));
-
-                          // setState(() {
-                          //   planos.removeAt(index);
-                          // });
-                        },
-                        backgroundColor: Colors.red,
-                        foregroundColor: Colors.white,
-                        icon: Icons.delete,
-                        label: 'Remover',
-                      ),
-                      SlidableAction(
-                        onPressed: (context) async {
-                          // var success = await Navigator.of(context).push(
-                          //   MaterialPageRoute(
-                          //     builder: (BuildContext context) =>
-                          //         PlanoCadastroPage(
-                          //       transacaoParaEdicao: plano,
-                          //     ),
-                          //   ),
-                          // ) as bool?;
-
-                          // if (success != null && success) {
-                          //   setState(() {
-                          //     carregarTransacoes();
-                          //   });
-                          // }
-                        },
-                        backgroundColor: Colors.blue,
-                        foregroundColor: Colors.white,
-                        icon: Icons.edit,
-                        label: 'Editar',
-                      ),
-                    ],
-                  ),
-                  child: PlanoListItem(plano: plano),
-                );
+                return PlanoListItem(plano: plano);
               },
               separatorBuilder: (context, index) => const Divider(),
             );
@@ -110,7 +62,7 @@ class _PlanosListaPageState extends State<PlanosListaPage> {
 
             if (planoCadastrado != null && planoCadastrado) {
               setState(() {
-                // carregarPlanos();
+                carregarPlanos();
               });
             }
           },

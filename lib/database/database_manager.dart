@@ -65,11 +65,6 @@ class DatabaseManager {
       'categoriaIcone': 'money',
       'categoriaTipoTransacao': 1
     });
-    await db.insert('planos', {
-      'nome': 'Viajar',
-      'valorTotal': 5000,
-      'valorAtual': 1000
-    });
   }
 
     String get _planos => '''
