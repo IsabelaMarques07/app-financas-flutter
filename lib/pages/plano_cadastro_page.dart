@@ -5,8 +5,8 @@ import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:intl/intl.dart';
 
 class PlanoCadastroPage extends StatefulWidget {
-  // Plano? transacaoParaEdicao;
-  // PlanoCadastroPage({Key? key, this.planoParaEdicao}) : super(key: key);
+  Plano? planoParaEdicao;
+  PlanoCadastroPage({Key? key, this.planoParaEdicao}) : super(key: key);
 
   @override
   State<PlanoCadastroPage> createState() => _PlanoCadastroPageState();
@@ -28,7 +28,20 @@ class _PlanoCadastroPageState extends State<PlanoCadastroPage> {
   @override
     void initState() {
       super.initState();
+
+      
+    final plano = widget.planoParaEdicao;
+      if(plano != null) {
+      _nomeController.text = plano.nome;
+      _valorAtualController.text =
+          NumberFormat.simpleCurrency(locale: 'pt_BR').format(plano.valorAtual);
+      _valorTotalController.text =
+          NumberFormat.simpleCurrency(locale: 'pt_BR').format(plano.valorTotal);
+      _dataInicialController.text = DateFormat('MM/dd/yyyy').format(plano.dataInicial);
+      _dataFinalController.text = DateFormat('MM/dd/yyyy').format(plano.dataFinal);
   }
+  }
+
 
     final _formKey = GlobalKey<FormState>();
 
@@ -245,12 +258,12 @@ class _PlanoCadastroPageState extends State<PlanoCadastroPage> {
             );
 
             try {
-              // if (widget.transacaoParaEdicao != null) {
-              //   transacao.id = widget.transacaoParaEdicao!.id;
-              //   await _transacaoRepository.editarTransacao(transacao);
-              // } else {
+              if (widget.planoParaEdicao != null) {
+                plano.id = widget.planoParaEdicao!.id;
+                await _planoRepository.editarPlano(plano);
+              } else {
                 await _planoRepository.cadastrarPlano(plano);
-              // }
+              }
 
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                 content: Text('Plano cadastrado com sucesso'),

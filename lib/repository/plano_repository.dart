@@ -1,3 +1,4 @@
+
 import 'package:financas_pessoais/database/database_manager.dart';
 import 'package:financas_pessoais/models/plano.dart';
 
@@ -36,5 +37,38 @@ class PlanoRepository {
       "dataInicial": plano.dataInicial.millisecondsSinceEpoch,
       "dataFinal": plano.dataFinal.millisecondsSinceEpoch,
     });
+  }
+
+    Future<void> removerLancamento(int id) async {
+    final db = await DatabaseManager().getDatabase();
+    await db.delete('planos', where: 'id = ?', whereArgs: [id]);
+  }
+
+    Future<int> editarPlano(Plano plano) async {
+    final db = await DatabaseManager().getDatabase();
+    return db.update(
+        'planos',
+        {
+          "id": plano.id,
+          "nome": plano.nome,
+          "valorTotal": plano.valorTotal,
+          "valorAtual": plano.valorAtual,
+          "dataInicial": plano.dataInicial.millisecondsSinceEpoch,
+          "dataFinal": plano.dataFinal.millisecondsSinceEpoch,
+        },
+        where: 'id = ?',
+        whereArgs: [plano.id]);
+  }
+
+      Future<int> adicionarValor(Plano plano, double valorAdicional) async {
+    final db = await DatabaseManager().getDatabase();
+    return db.update(
+        'planos',
+        {
+          "id": plano.id,
+          "valorAtual": plano.valorAtual + valorAdicional,
+        },
+        where: 'id = ?',
+        whereArgs: [plano.id]);
   }
 }

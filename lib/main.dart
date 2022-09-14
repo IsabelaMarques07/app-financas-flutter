@@ -1,5 +1,6 @@
 import 'package:financas_pessoais/pages/home_page.dart';
 import 'package:financas_pessoais/pages/plano_cadastro_page.dart';
+import 'package:financas_pessoais/pages/plano_detalhes_page%20copy.dart';
 import 'package:financas_pessoais/pages/transacao_cadastro_page.dart';
 import 'package:financas_pessoais/pages/transacao_detalhes_page.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         '/transacao-detalhes': (context) => const TransacaoDetalhesPage(),
         '/transacao-cadastro': (context) => TransacaoCadastroPage(),
         '/plano-cadastro': (context) => PlanoCadastroPage(),
+        '/plano-detalhes': (context) => const PlanoDetalhesPage(),
       },
       initialRoute: '/',
     );
