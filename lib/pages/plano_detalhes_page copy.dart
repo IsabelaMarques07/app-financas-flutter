@@ -11,7 +11,7 @@ class PlanoDetalhesPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.greenAccent,
+        backgroundColor: Colors.blue,
         title: Text(plano.nome),
       ),
       body: SingleChildScrollView(
