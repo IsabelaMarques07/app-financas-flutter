@@ -1,16 +1,17 @@
-# financas_pessoais
+# App de finanças pessoais
+<p> Aplicativo criado durante as aulas da matéria de Desenvolvimento Cross Plataform </p>
 
-A new Flutter project.
+### 🛠 Tecnologias utilizadas:
+* Flutter
+* SQFLite
+* Path
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Entrega para o 4º checkpoint
+<p> <b>Proposta: </b> Criar nova funcionalidade para o app, com as opções de criar, deletar e editar.</p>
+<p> <b>Solução:</p>
+<p>
+  <img src="https://user-images.githubusercontent.com/61291155/190293007-fe463892-289d-45e3-9ff0-b32ef18ba83b.PNG" width="800px">
+</p>
+<p>
+  <img src="https://user-images.githubusercontent.com/61291155/190293087-e0a5dd82-e8dc-48ed-99b3-6831aec1ef9d.PNG" width="800px">
+</p>
