@@ -1,5 +1,4 @@
 # App de finanças pessoais
-<p> Aplicativo criado durante as aulas da matéria de Desenvolvimento Cross Plataform </p>
 
 ### 🛠 Tecnologias utilizadas:
 * Flutter
